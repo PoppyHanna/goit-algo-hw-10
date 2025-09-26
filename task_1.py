@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List
 import time
 
 COINS = [50, 25, 10, 5, 2, 1]
@@ -41,8 +41,9 @@ def print_asc(result: dict) -> dict:
     return {coin: result[coin] for coin in sorted(result.keys())}
 
 if __name__ == "__main__":
-    amount = 114
-    
+    amount = 117
+    # amount = 10740
+
     start = time.perf_counter()
     greedy_res = find_coins_greedy(amount)
     greedy_time = time.perf_counter() - start
