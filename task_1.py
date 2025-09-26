@@ -1,4 +1,5 @@
 from typing import Dict
+import time
 
 COINS = [50, 25, 10, 5, 2, 1]
 
@@ -41,9 +42,18 @@ def print_asc(result: dict) -> dict:
 
 if __name__ == "__main__":
     amount = 114
-
+    
+    start = time.perf_counter()
     greedy_res = find_coins_greedy(amount)
+    greedy_time = time.perf_counter() - start
+
+    start = time.perf_counter()
     dp_res = find_min_coins(amount)
+    dp_time = time.perf_counter() - start
 
     print(f"Greedy result for {amount}: {print_desc(greedy_res)}")
-    print(f"DP result for {amount}: {print_asc(dp_res)}")    
+    print(f"DP result for {amount}: {print_asc(dp_res)}")
+
+    print("=== Performance Comparison === ")
+    print(f"Greedy time: {greedy_time:.8f} sec")
+    print(f"DP time: {dp_time:.8f} sec")
